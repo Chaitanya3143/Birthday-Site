@@ -60,7 +60,7 @@ body {
 .left .btn { transform: scale(0); animation: scaleCricle 2s 16s forwards ease-in-out; position: relative; z-index: 6000000; pointer-events: auto; }
 
 #btn__letter {
-    position: relative; margin-top: 30px; background-color: var(--color-text-pink); outline: none; padding: 5px 15px; font-size: 1rem; border-radius: 50px; border: 3px solid var(--color-black); font-family: "Sriracha", cursive; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 6000001; transform: scale(1); transition: all .5s ease-in-out; pointer-events: auto;
+    position: relative; margin-top: 30px; background-color: var(--color-text-pink); outline: none; padding: 5px 15px; font-size: 1rem; border-radius: 50px; border: 3px solid var(--color-black); font-family: "Sriracha", cursive; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 6000001; transform: scale(1); transition: all .5s ease-in-out; pointer-events: auto; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
 }
 
 #btn__letter:hover {
@@ -83,7 +83,7 @@ body {
 .date__of__birth, .name { display: flex; justify-content: space-around; align-items: center; background-color: var(--color-text-pink); border-radius: 50px; margin-top: 20px; font-family: "Sriracha", cursive; }
 .date__of__birth { border: 3px solid var(--color-black); position: relative; transform: translateY(-100px); z-index: -1; opacity: 0; visibility: hidden; width: 0px; animation: dateOfBirth 5s 9s forwards; }
 @keyframes dateOfBirth { 20%, 40% { width: 0px; height: 0; transform: translateY(0px); opacity: 1; visibility: visible; } 45% { transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 0px; } 50%, 100% { transform: translateY(0px); opacity: 1; visibility: visible; width: 300px; height: 50px; } }
-.name { position: absolute; padding: 0px 20px; bottom: -20px; border: 3px solid var(--color-black); font-family: 'Dancing Script', cursive; }
+.name { position: absolute; padding: 0px 20px; bottom: -20px; border: 3px solid var(--color-black); font-family: 'Dancing Script', cursive; white-space: nowrap; flex-wrap: nowrap; }
 .date__of__birth span, .name span { font-weight: bold; margin: 0px 40px; }
 .date__of__birth span { font-size: 1.2rem; }
 .name span { font-size: 1.7rem; }
@@ -135,11 +135,13 @@ body {
     height: 100%;
     opacity: 0;
     top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: scale(0.3);
     visibility: hidden;
+    pointer-events: none;
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     z-index: 100000000;
 }
@@ -148,6 +150,7 @@ body {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
+    pointer-events: auto;
 }
 
 .boxMail .fa-xmark {
@@ -536,6 +539,10 @@ body {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     animation: pulseBtn 2.5s ease-in-out infinite;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .letter-cta-btn:hover {
