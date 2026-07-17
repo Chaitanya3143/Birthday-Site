@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="A Letter For You - Happy Birthday Sejal">
+    <meta name="description" content="A heartfelt birthday letter for Sejal">
+    <title>A Letter For You 💌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-pink: #feecea;
+            --color-white: #fff;
+            --color-black: #333;
+            --color-text-pink: #FF7882;
+            --color-heart: #FF7882;
+            --color-bg-letter: #fffbf4;
+            --color-border: #DACCBF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: transparent;
+            background-image:
+                linear-gradient(var(--color-pink), var(--color-pink)),
+                linear-gradient(0deg, transparent 24%,
+                    rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%,
+                    transparent 27%, transparent 74%,
+                    rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%,
+                    transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%,
+                    rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%,
+                    transparent 27%, transparent 74%,
+                    rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%,
+                    transparent 77%, transparent);
+            background-size: 100%, 80px 80px, 80px 80px;
+            overflow-x: hidden;
+        }
+
+        /* ========== BACK BUTTON ========== */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, #FF7882, #ff5f6d);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.4);
+            box-shadow: 0 4px 15px rgba(255, 95, 109, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05) translateX(-3px);
+            box-shadow: 0 6px 20px rgba(255, 95, 109, 0.45);
+        }
+
+        /* ========== HEADER ========== */
+        .letter-header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInDown 1s 0.3s forwards ease-out;
+        }
+
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter-header .header-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--color-text-pink);
+            box-shadow: 0 8px 25px rgba(255, 120, 130, 0.35);
+        }
+
+        .letter-header .header-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .letter-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: var(--color-text-pink);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+            margin-bottom: 8px;
+        }
+
+        .letter-header .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #c9707a;
+            font-weight: 400;
+        }
+
+        /* ========== SCROLL INDICATOR ========== */
+        .scroll-indicator {
+            text-align: center;
+            padding: 10px 0 40px;
+            opacity: 0;
+            animation: fadeInDown 1s 1s forwards;
+        }
+
+        .scroll-indicator span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            color: #c9707a;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .scroll-indicator i {
+            color: var(--color-text-pink);
+            font-size: 1.2rem;
+            animation: bounceDown 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ========== LETTER CONTAINER ========== */
+        .letter-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        /* ========== LETTER PARAGRAPHS ========== */
+        .letter-paragraph {
+            background: var(--color-bg-letter);
+            border: 2px solid var(--color-text-pink);
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow:
+                inset 0 0 30px rgba(255, 120, 130, 0.04),
+                0 10px 30px rgba(0, 0, 0, 0.06);
+            outline: 1px dashed rgba(255, 120, 130, 0.3);
+            outline-offset: -8px;
+
+            /* Initially hidden */
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .letter-paragraph.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .letter-paragraph .para-emoji {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-pink);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            border: 2px solid var(--color-text-pink);
+        }
+
+        .letter-paragraph .letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.65rem;
+            line-height: 1.7;
+            color: var(--color-text-pink);
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Individual word reveal within paragraphs */
+        .letter-word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .letter-word.word-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== INLINE PHOTO (between paragraphs) ========== */
+        .letter-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .letter-photo.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .letter-photo .photo-frame {
+            position: relative;
+            display: inline-block;
+        }
+
+        .letter-photo .photo-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--color-text-pink);
+            box-shadow: 0 10px 30px rgba(255, 120, 130, 0.25);
+        }
+
+        .letter-photo .photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .letter-photo .photo-label {
+            display: block;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #c9707a;
+            margin-top: 10px;
+        }
+
+        /* ========== EYE TREND SPECIAL ========== */
+        .eye-trend-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .eye-trend-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .eye-trend-card {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid rgba(255, 120, 130, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .eye-trend-card .eye-img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .eye-trend-card .eye-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #ff9a9e;
+        }
+
+        /* ========== MEMORIES SECTION ========== */
+        .memories-section {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+        }
+
+        .memories-title {
+            text-align: center;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .memories-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .memories-title h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.4rem;
+            color: var(--color-text-pink);
+            margin-bottom: 6px;
+        }
+
+        .memories-title p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: #c9707a;
+        }
+
+        .memories-title .title-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-text-pink), transparent);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Snap memories row --- */
+        .memories-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #c9707a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 18px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .memories-subtitle.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .memories-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .memories-grid.snaps-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .memories-grid.chats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .memory-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 3px solid var(--color-text-pink);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            background: white;
+            opacity: 0;
+            transform: translateY(40px) scale(0.92);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
+
+        .memory-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .memory-card:hover {
+            box-shadow: 0 10px 30px rgba(255, 120, 130, 0.25);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .memory-card.snap-card {
+            aspect-ratio: 9/16;
+        }
+
+        .memory-card.chat-card {
+            aspect-ratio: auto;
+            max-height: 350px;
+        }
+
+        .memory-card.chat-card img {
+            object-position: top;
+        }
+
+        /* ========== CLOSING SECTION ========== */
+        .letter-closing {
+            text-align: center;
+            padding: 20px 0 60px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .letter-closing.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .letter-closing .heart-divider {
+            font-size: 1.6rem;
+            color: var(--color-heart);
+            margin-bottom: 15px;
+            animation: scaleHeart 1s infinite linear;
+        }
+
+        @keyframes scaleHeart {
+            50% { transform: scale(1.2); }
+        }
+
+        .letter-closing .sign-off {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--color-text-pink);
+            margin-bottom: 8px;
+        }
+
+        .letter-closing .sign-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #c9707a;
+            font-weight: 500;
+        }
+
+        /* ========== FLOATING DECORATIONS ========== */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1rem;
+            opacity: 0.15;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #FF7882, #ff5f6d, #ff9a9e);
+            z-index: 999;
+            transition: width 0.1s linear;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media screen and (max-width: 658px) {
+            .letter-header {
+                padding: 70px 15px 30px;
+            }
+
+            .letter-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .letter-header .header-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .letter-paragraph {
+                padding: 30px 22px;
+                margin-bottom: 32px;
+                border-radius: 16px;
+            }
+
+            .letter-paragraph .letter-text {
+                font-size: 1.4rem;
+                line-height: 1.55;
+            }
+
+            .back-btn {
+                top: 14px;
+                left: 14px;
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .letter-container {
+                padding: 0 14px 30px;
+            }
+
+            .letter-photo .photo-circle {
+                width: 140px;
+                height: 140px;
+            }
+
+            .letter-photo .photo-label {
+                font-size: 1rem;
+            }
+
+            .eye-trend-card {
+                max-width: 250px;
+                padding: 18px;
+            }
+
+            .eye-trend-card .eye-caption {
+                font-size: 1.05rem;
+            }
+
+            .memories-section {
+                padding: 10px 14px 30px;
+            }
+
+            .memories-title h2 {
+                font-size: 2rem;
+            }
+
+            .memories-grid.snaps-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .memories-grid.chats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .memory-card {
+                border-width: 2px;
+                border-radius: 12px;
+            }
+
+            .memory-card.chat-card {
+                max-height: 280px;
+            }
+
+            .letter-closing .sign-off {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            .letter-paragraph {
+                padding: 25px 16px;
+            }
+
+            .letter-paragraph .letter-text {
+                font-size: 1.25rem;
+                line-height: 1.5;
+            }
+
+            .letter-photo .photo-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .memories-grid.chats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-card.chat-card {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Back button -->
+    <a href="index.html" class="back-btn" id="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back</span>
+    </a>
+
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Header with her photo -->
+    <div class="letter-header">
+        <div class="header-photo">
+            <img src="images/unnamed.jpeg" alt="Sejal">
+        </div>
+        <h1>A Letter For You</h1>
+        <p class="subtitle">Scroll down to read 💕</p>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <span>Scroll slowly</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+    <!-- Letter Content -->
+    <div class="letter-container" id="letterContainer">
+
+        <div class="letter-paragraph" data-delay="0">
+            <div class="para-emoji">💌</div>
+            <p class="letter-text">
+                Dear Sejal, 15 years... wow 🥹❤️ Happy Birthday to the most kind-hearted, understanding, caring and genuinely beautiful person I have ever met 🤍🌸. I hope this birthday gives you every bit of happiness that you deserve — because if there is anyone who deserves it, it's you ❤️🫶🏻✨
+            </p>
+        </div>
+
+        <!-- Her photo 1 -->
+        <div class="letter-photo reveal-item">
+            <div class="photo-frame">
+                <div class="photo-circle">
+                    <img src="images/image_her1.jpeg" alt="Sejal">
+                </div>
+                <span class="photo-label">The Birthday Girl ✨</span>
+            </div>
+        </div>
+
+        <div class="letter-paragraph" data-delay="100">
+            <div class="para-emoji">🌟</div>
+            <p class="letter-text">
+                More than two and a half years ago, I never imagined that a simple "Jevan Jhala ka?" 🍛😂 on Instagram would become one of the most important conversations of my life ❤️. We used to only send reels and random messages, then one day you texted me first 🥹 and from that day we never really stopped talking 🤍✨
+            </p>
+        </div>
+
+        <div class="letter-paragraph" data-delay="200">
+            <div class="para-emoji">✨</div>
+            <p class="letter-text">
+                You know almost every side of me ❤️ — my good days, my bad days, my achievements, my failures, my overthinking, my happiness, everything. There are things I have told you before telling anyone else 🥹. That's how much I trust you 🤍🫶🏻
+            </p>
+        </div>
+
+        <!-- Eye trend -->
+        <div class="eye-trend-section reveal-item">
+            <div class="eye-trend-card">
+                <img src="images/eye_trend.jpeg" alt="Eye Trend" class="eye-img">
+                <p class="eye-caption">those eyes tho 👀✨</p>
+            </div>
+        </div>
+
+        <div class="letter-paragraph" data-delay="300">
+            <div class="para-emoji">🎂</div>
+            <p class="letter-text">
+                Before meeting you, I was much more arrogant and rude 😅. Over time, without even trying, you made me realize that kindness is never a weakness ❤️. You taught me patience, understanding, forgiveness and respect 🫶🏻. If today I am a better person than I was two years ago, a part of that credit will always belong to you 🥹🌸
+            </p>
+        </div>
+
+        <!-- Her photo 2 -->
+        <div class="letter-photo reveal-item">
+            <div class="photo-frame">
+                <div class="photo-circle">
+                    <img src="images/image_her2.jpeg" alt="Sejal" style="object-position: center 30%;">
+                </div>
+                <span class="photo-label">Prettiest person ever 💖</span>
+            </div>
+        </div>
+
+        <div class="letter-paragraph" data-delay="400">
+            <div class="para-emoji">🎁</div>
+            <p class="letter-text">
+                I'm so proud of everything you've achieved already 🏆❤️. Watching you perform Mallakhamb 🤸🏻‍♀️, seeing you win competitions 🥇, seeing how dedicated you are towards your dreams — it genuinely makes me proud 🥹. I know you'll achieve great things in life 🤍✨
+            </p>
+        </div>
+
+        <div class="letter-paragraph" data-delay="500">
+            <div class="para-emoji">🥳</div>
+            <p class="letter-text">
+                May you always smile like you do today 😊❤️. May you achieve every dream you've ever dreamt of ✨🏅. May your parents always feel proud of you ❤️. And please... never lose the kindness that makes you, you 🤍. Happy 15th Birthday once again Sejal ❤️🎂🎉🫶🏻✨
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ========== MEMORIES SECTION ========== -->
+    <div class="memories-section" id="memoriesSection">
+
+        <div class="memories-title reveal-item">
+            <h2>Our Memories 💕</h2>
+            <p>Snaps, chats & everything in between</p>
+            <div class="title-line"></div>
+        </div>
+
+        <!-- Snaps -->
+        <p class="memories-subtitle reveal-item">📸 Snap Memories</p>
+        <div class="memories-grid snaps-grid">
+            <div class="memory-card snap-card reveal-item">
+                <img src="images/snap1.jpeg" alt="Snap memory">
+            </div>
+            <div class="memory-card snap-card reveal-item">
+                <img src="images/snap2.jpeg" alt="Snap memory">
+            </div>
+            <div class="memory-card snap-card reveal-item">
+                <img src="images/snap3.jpeg" alt="Snap memory">
+            </div>
+        </div>
+
+        <!-- Chats -->
+        <p class="memories-subtitle reveal-item">💬 Chat Memories</p>
+        <div class="memories-grid chats-grid">
+            <div class="memory-card chat-card reveal-item">
+                <img src="images/chat1.jpeg" alt="Chat memory">
+            </div>
+            <div class="memory-card chat-card reveal-item">
+                <img src="images/chat2.jpeg" alt="Chat memory">
+            </div>
+            <div class="memory-card chat-card reveal-item">
+                <img src="images/chat3.jpeg" alt="Chat memory">
+            </div>
+            <div class="memory-card chat-card reveal-item">
+                <img src="images/chat4.jpeg" alt="Chat memory">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Closing -->
+    <div class="letter-closing" id="letterClosing">
+        <div class="heart-divider">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <p class="sign-off">Take care of yourself, small girl 😭🤏❤️</p>
+        <p class="sign-name">— Your annoying best friend ❤️🥹🫶🏻🤍</p>
+    </div>
+
+    <script>
+        // ============ FLOATING HEARTS ============
+        const heartsContainer = document.getElementById('floatingHearts');
+        const heartEmojis = ['💗', '💖', '💕', '💛', '🌸', '✨', '🎀'];
+
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (12 + Math.random() * 18) + 's';
+            heart.style.animationDelay = (Math.random() * 10) + 's';
+            heart.style.fontSize = (0.7 + Math.random() * 0.8) + 'rem';
+            heartsContainer.appendChild(heart);
+        }
+
+        // ============ PROGRESS BAR ============
+        const progressBar = document.getElementById('progressBar');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // ============ SCROLL REVEAL: PARAGRAPHS ============
+        const paragraphs = document.querySelectorAll('.letter-paragraph');
+        const closing = document.getElementById('letterClosing');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+
+        function wrapWordsInSpans(paragraph) {
+            const textEl = paragraph.querySelector('.letter-text');
+            if (!textEl || textEl.dataset.wrapped) return;
+
+            const text = textEl.innerHTML;
+            const words = text.split(/(\s+)/);
+            let html = '';
+            let wordIndex = 0;
+
+            words.forEach(word => {
+                const trimmed = word.trim();
+                if (trimmed === '') {
+                    html += word;
+                } else {
+                    html += `<span class="letter-word" style="transition-delay: ${wordIndex * 60}ms">${word}</span>`;
+                    wordIndex++;
+                }
+            });
+
+            textEl.innerHTML = html;
+            textEl.dataset.wrapped = 'true';
+        }
+
+        function revealWords(paragraph) {
+            const words = paragraph.querySelectorAll('.letter-word');
+            words.forEach(word => {
+                word.classList.add('word-visible');
+            });
+        }
+
+        // Wrap all words on load
+        paragraphs.forEach(wrapWordsInSpans);
+
+        // ============ UNIFIED INTERSECTION OBSERVER ============
+        const revealObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const delay = parseInt(el.dataset.delay) || 0;
+
+                    setTimeout(() => {
+                        el.classList.add('visible');
+
+                        // If it's a letter paragraph, reveal words
+                        if (el.classList.contains('letter-paragraph')) {
+                            setTimeout(() => revealWords(el), 300);
+                        }
+                    }, delay);
+
+                    revealObserver.unobserve(el);
+                }
+            });
+        }, revealObserverOptions);
+
+        // Observe letter paragraphs
+        paragraphs.forEach(para => revealObserver.observe(para));
+
+        // Observe all generic reveal items (photos, eye trend, memories, etc.)
+        document.querySelectorAll('.reveal-item').forEach(item => {
+            revealObserver.observe(item);
+        });
+
+        // Observe closing section
+        revealObserver.observe(closing);
+
+        // Hide scroll indicator after first scroll
+        let hasScrolled = false;
+        window.addEventListener('scroll', () => {
+            if (!hasScrolled && window.scrollY > 50) {
+                hasScrolled = true;
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.transition = 'opacity 0.5s ease';
+            }
+        });
+    </script>
+</body>
+
+</html>
